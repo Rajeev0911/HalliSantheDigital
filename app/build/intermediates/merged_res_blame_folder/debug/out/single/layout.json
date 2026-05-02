@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/activity_login.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/activity_product_detail.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_product_detail.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/fragment_profile.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/fragment_browse.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_browse.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/activity_home.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/fragment_my_products.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_my_products.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/fragment_home.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/item_product_card.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/item_product_card.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/activity_splash.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-mergeDebugResources-52:/layout/activity_upload.xml",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_upload.xml"
+    }
+]

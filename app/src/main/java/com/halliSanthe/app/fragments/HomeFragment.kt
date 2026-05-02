@@ -1,0 +1,213 @@
+package com.halliSanthe.app.fragments
+
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.halliSanthe.app.R
+import com.halliSanthe.app.adapters.ProductAdapter
+import com.halliSanthe.app.models.Product
+
+class HomeFragment : Fragment() {
+
+    private lateinit var rvProducts: RecyclerView
+    private lateinit var adapter: ProductAdapter
+    private var productList = ArrayList<Product>()
+    private lateinit var progressBar: ProgressBar
+    private lateinit var layoutEmpty: LinearLayout
+    private lateinit var etSearch: EditText
+    private lateinit var chipGroup: ChipGroup
+    private lateinit var db: FirebaseFirestore
+
+    private val categories = listOf(
+        "All",
+        "Handicrafts",
+        "Pottery",
+        "Textiles",
+        "Toys",
+        "Spices & Food",
+        "Jewellery",
+        "Woodwork",
+        "Paintings",
+        "Vegetables"
+    )
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(
+            R.layout.fragment_home,
+            container,
+            false
+        )
+    }
+
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+
+        db = FirebaseFirestore.getInstance()
+
+        rvProducts = view.findViewById(R.id.rv_products)
+        progressBar = view.findViewById(R.id.progress_bar)
+        layoutEmpty = view.findViewById(R.id.layout_empty)
+        etSearch = view.findViewById(R.id.et_search)
+        chipGroup = view.findViewById(R.id.chip_group_categories)
+
+        rvProducts.layoutManager =
+            GridLayoutManager(requireContext(), 2)
+
+        adapter = ProductAdapter(
+            requireContext(),
+            productList
+        )
+
+        rvProducts.adapter = adapter
+
+        buildCategoryChips()
+
+        etSearch.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+
+                adapter.filter(s.toString())
+
+                toggleEmptyState()
+            }
+        })
+
+        loadProducts("All")
+    }
+
+    private fun buildCategoryChips() {
+
+        chipGroup.removeAllViews()
+
+        for (cat in categories) {
+
+            val chip = Chip(requireContext())
+
+            chip.text = cat
+            chip.isCheckable = true
+            chip.isCheckedIconVisible = false
+
+            chip.setChipBackgroundColorResource(
+                R.color.chip_background_selector
+            )
+
+            chip.setTextColor(
+                resources.getColorStateList(
+                    R.color.chip_text_selector,
+                    null
+                )
+            )
+
+            chip.setChipStrokeColorResource(R.color.green_500)
+            chip.chipStrokeWidth = 1f
+
+            if (cat == "All") {
+                chip.isChecked = true
+            }
+
+            chip.setOnClickListener {
+                loadProducts(cat)
+            }
+
+            chipGroup.addView(chip)
+        }
+    }
+
+    private fun loadProducts(category: String) {
+
+        progressBar.visibility = View.VISIBLE
+        layoutEmpty.visibility = View.GONE
+
+        var query = db.collection("products")
+            .orderBy(
+                "timestamp",
+                Query.Direction.DESCENDING
+            )
+
+        if (category != "All") {
+
+            query = query.whereEqualTo(
+                "category",
+                category
+            )
+        }
+
+        query.get()
+            .addOnSuccessListener { snapshot ->
+
+                productList.clear()
+
+                for (doc in snapshot.documents) {
+
+                    val product =
+                        doc.toObject(Product::class.java)
+
+                    if (product != null) {
+                        productList.add(product)
+                    }
+                }
+
+                adapter.updateList(productList)
+
+                progressBar.visibility = View.GONE
+
+                toggleEmptyState()
+            }
+            .addOnFailureListener {
+
+                progressBar.visibility = View.GONE
+
+                toggleEmptyState()
+            }
+    }
+
+    private fun toggleEmptyState() {
+
+        if (adapter.itemCount == 0) {
+
+            layoutEmpty.visibility = View.VISIBLE
+            rvProducts.visibility = View.GONE
+
+        } else {
+
+            layoutEmpty.visibility = View.GONE
+            rvProducts.visibility = View.VISIBLE
+        }
+    }
+}

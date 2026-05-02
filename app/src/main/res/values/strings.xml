@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Halli-Santhe</string>
+    <string name="tagline">Your Village Market, Anytime</string>
+
+    <!-- Login -->
+    <string name="login_title">Welcome to\nHalli-Santhe!</string>
+    <string name="login_subtitle">Enter your phone number to continue</string>
+    <string name="hint_phone">Phone Number (10 digits)</string>
+    <string name="hint_otp">Enter 6-digit OTP</string>
+    <string name="hint_name">Your Name</string>
+    <string name="btn_send_otp">Send OTP</string>
+    <string name="btn_verify">Verify &amp; Continue</string>
+
+    <!-- Home -->
+    <string name="search_hint">Search products…</string>
+    <string name="featured_products">Featured Products</string>
+    <string name="all_categories">All Categories</string>
+
+    <!-- Upload -->
+    <string name="upload_title">Upload Product</string>
+    <string name="hint_product_name">Product Name</string>
+    <string name="hint_price">Price (₹)</string>
+    <string name="hint_description">Description (optional)</string>
+    <string name="hint_category">Select Category</string>
+    <string name="btn_upload">Upload Product</string>
+    <string name="tap_to_add_photo">Tap to add product photo</string>
+
+    <!-- Detail -->
+    <string name="btn_contact_seller">Contact Seller on WhatsApp</string>
+    <string name="sold_by">Sold by</string>
+
+    <!-- Empty State -->
+    <string name="empty_title">No Products Yet</string>
+    <string name="empty_subtitle">Be the first to add one!</string>
+    <string name="empty_my_products">You haven\'t listed any products yet.</string>
+    <string name="btn_add_product">+ Add Product</string>
+
+    <!-- Profile -->
+    <string name="btn_logout">Logout</string>
+    <string name="my_listings">My Listings</string>
+
+    <!-- Nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_browse">Browse</string>
+    <string name="nav_my_products">My Products</string>
+    <string name="nav_profile">Profile</string>
+</resources>

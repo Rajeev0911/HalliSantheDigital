@@ -1,0 +1,104 @@
+PROJECT REQUIREMENTS
+Halli-Santhe Digital
+Android App Development using GenAI — Project 85
+Field	Info
+Project Name	Halli-Santhe Digital
+Project Number	85
+Domain	Retail / E-Commerce
+Platform	Android Mobile App
+Document Type	Project Requirements
+Version	1.0 — April 2026
+
+
+1. Software Requirements
+1.1 Development Tools
+•	Android Studio (Latest Stable Version — Hedgehog or above)
+•	Java Development Kit (JDK 17 or above)
+•	Git — for version control
+•	GitHub — remote repository hosting
+1.2 Programming Language
+•	Primary Language: Java (or Kotlin — either is acceptable)
+•	XML — for Android layout files
+1.3 Backend & Database
+•	Firebase Firestore — cloud database for product listings
+•	Firebase Authentication — for user login (Phone/OTP)
+•	Firebase Storage — for storing product images
+•	Room Database (optional) — for offline caching
+1.4 Android Libraries & Dependencies
+•	RecyclerView + GridLayoutManager — for product grid display
+•	Glide or Picasso — for image loading and caching
+•	Compressor library — for image compression before upload
+•	Material Design Components — for UI elements
+•	Firebase SDK — for all Firebase services
+
+2. Hardware Requirements
+2.1 Development Machine
+Requirement	Minimum	Recommended
+RAM	8 GB	16 GB
+Processor	Intel i5 / AMD Ryzen 5	Intel i7 / AMD Ryzen 7
+Storage	50 GB free	100 GB SSD free
+OS	Windows 10 / macOS 11	Windows 11 / macOS 13+
+Internet	Required for Firebase	Stable broadband
+
+2.2 Test Device
+•	Android phone with Android 8.0 (API 26) or above
+•	Minimum 2 GB RAM on test device
+•	Camera — for testing product photo upload
+•	Internet connection — for Firebase sync testing
+•	Android Emulator (AVD) as alternative — Pixel 6 API 33 recommended
+
+3. Team Structure & Roles
+Role	Responsibilities	No. of Members
+Project Lead	Overall coordination, submission, documentation review	1
+Android Developer	UI implementation, Activity/Fragment coding, RecyclerView setup	1–2
+Firebase Developer	Firebase setup, Firestore CRUD, Auth, Storage integration	1
+UI/UX Designer	Screen designs, color scheme, icon selection, wireframes	1
+Tester / QA	Testing all features, finding bugs, checking success criteria	1
+
+4. Project Timeline / Milestones
+
+Week	Milestone	Deliverable
+Week 1	Project Setup	Android project created, Firebase connected, GitHub repo set up
+Week 2	Authentication	Login/Signup screen working with Firebase Auth
+Week 3	Product Upload	Artisan can upload product with image compression
+Week 4	Product Listing	Buyer can browse products in grid with category filter
+Week 5	Product Detail + Search	Detail screen with CTA + search by product name working
+Week 6	Empty State + Polish	Empty states handled, UI polished, colors & fonts applied
+Week 7	Testing & Bug Fix	All 6 success criteria verified and fixed
+Week 8	Final Submission	APK file + documentation submitted
+
+5. Technology Stack Summary
+
+Layer	Technology	Purpose
+Language	Java / Kotlin	App logic and screen code
+UI	XML Layouts + Material Design	Screen design and components
+RecyclerView	GridLayoutManager (2 columns)	Product grid display
+Auth	Firebase Authentication	Phone OTP login
+Database	Firebase Firestore	Store product listings
+Images	Firebase Storage + Glide	Upload and display product photos
+Compression	Compressor / Bitmap API	Reduce image size before upload
+AI Feature	GenAI (Gemini API)	Auto-generate product descriptions
+Version Control	Git + GitHub	Code management
+
+6. Success Criteria Checklist
+The following criteria MUST all be met before final submission:
+
+□	Clicking a product opens a detailed view with a clear 'Call to Action' button.
+□	Search functionality works correctly for product names (real-time filter).
+□	Empty State is handled gracefully — shows friendly UI when no products exist.
+□	UI is colorful and vibrant, reflecting a traditional Indian market aesthetic.
+□	Artisan can upload a product with Name, Price, Category, and 1 Photo.
+□	Image compression is implemented before uploading to Firebase Storage.
+□	App works on Android 8.0+ without crashes.
+□	All Firebase read/write operations complete without errors.
+
+7. Final Deliverables
+1.	Android APK file — installable and working on a real device
+2.	Source Code — uploaded to GitHub repository
+3.	PRD Document — Product Requirements Document (this document set)
+4.	Wireframe Document — All 8 screen layouts
+5.	Project Requirements Document — this document
+6.	Demo Video — 2-3 minute screen recording showing all features
+7.	Presentation Slides — for final project demo (if required)
+
+— End of Document —

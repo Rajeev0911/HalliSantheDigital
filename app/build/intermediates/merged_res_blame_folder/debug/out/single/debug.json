@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_activity_login.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_fragment_profile.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/mipmap_ic_launcher.webp.flat",
+        "source": "com.halliSanthe.app-main-55:/mipmap/ic_launcher.webp"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/drawable_placeholder_image.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/drawable/placeholder_image.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_activity_upload.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_upload.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/color_chip_background_selector.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/color/chip_background_selector.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_activity_product_detail.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_product_detail.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/mipmap_ic_launcher_round.webp.flat",
+        "source": "com.halliSanthe.app-main-55:/mipmap/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_fragment_my_products.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_my_products.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_activity_home.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_item_product_card.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/item_product_card.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/color_chip_text_selector.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/color/chip_text_selector.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_fragment_browse.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_browse.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/color_bottom_nav_selector.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/color/bottom_nav_selector.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_activity_splash.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/layout_fragment_home.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.halliSanthe.app-merged_res-53:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.halliSanthe.app-main-55:/menu/bottom_nav_menu.xml"
+    }
+]

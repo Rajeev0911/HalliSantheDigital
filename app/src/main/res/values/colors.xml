@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Green -->
+    <color name="green_900">#1B5E20</color>
+    <color name="green_700">#388E3C</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="green_200">#A5D6A7</color>
+    <color name="green_50">#E8F5E9</color>
+
+    <!-- Accent Orange (traditional market feel) -->
+    <color name="orange_700">#E65100</color>
+    <color name="orange_500">#FF6D00</color>
+    <color name="orange_200">#FFCC80</color>
+    <color name="orange_50">#FFF3E0</color>
+
+    <!-- Yellow -->
+    <color name="yellow_600">#F9A825</color>
+    <color name="yellow_100">#FFF9C4</color>
+
+    <!-- Neutral -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_primary">#1A2E1A</color>
+    <color name="text_secondary">#5D6B5D</color>
+    <color name="bg_light">#FAFAF7</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Theme -->
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorAccent">#FF6D00</color>
+    <color name="colorPrimaryVariant">#1B5E20</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#FF6D00</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#1A2E1A</color>
+    <color name="colorBackground">#FAFAF7</color>
+    <color name="colorOnBackground">#1A2E1A</color>
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
+</resources>
