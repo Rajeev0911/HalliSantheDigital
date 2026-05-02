@@ -57,7 +57,8 @@
                         android:orientation="vertical"
                         android:gravity="center"
                         android:clickable="true"
-                        android:focusable="true">
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -165,7 +166,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Select category"
                     android:inputType="none"
-                    android:focusable="false" />
+                    android:editable="false"
+                    android:focusable="false"
+                    android:clickable="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

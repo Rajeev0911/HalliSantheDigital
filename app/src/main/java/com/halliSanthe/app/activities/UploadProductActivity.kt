@@ -46,6 +46,7 @@ class UploadProductActivity : AppCompatActivity() {
     private lateinit var btnUpload: Button
     private lateinit var btnAiGenerate: MaterialButton
     private lateinit var progressBar: ProgressBar
+    private lateinit var layoutPlaceholder: View
 
     private var selectedImageUri: Uri? = null
     private var sellerName = "Artisan"
@@ -77,6 +78,8 @@ class UploadProductActivity : AppCompatActivity() {
                     .load(selectedImageUri)
                     .centerCrop()
                     .into(ivProductImage)
+
+                layoutPlaceholder.visibility = View.GONE
             }
         }
 
@@ -119,6 +122,7 @@ class UploadProductActivity : AppCompatActivity() {
         btnUpload = findViewById(R.id.btn_upload)
         btnAiGenerate = findViewById(R.id.btn_ai_generate)
         progressBar = findViewById(R.id.progress_bar)
+        layoutPlaceholder = findViewById(R.id.layout_placeholder)
 
         val adapter = ArrayAdapter(
             this,
@@ -132,6 +136,14 @@ class UploadProductActivity : AppCompatActivity() {
 
         ivProductImage.setOnClickListener {
             checkPermissionAndPickImage()
+        }
+
+        layoutPlaceholder.setOnClickListener {
+            checkPermissionAndPickImage()
+        }
+
+        spinnerCategory.setOnClickListener {
+            spinnerCategory.showDropDown()
         }
 
         btnUpload.setOnClickListener {
