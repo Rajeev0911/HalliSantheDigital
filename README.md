@@ -2,7 +2,7 @@
 
 A digital marketplace app for rural artisans and farmers to showcase and sell their handcrafted products, agricultural goods, and local specialties directly to consumers — bridging the gap between rural talent and urban markets.
 
-> **Halli Santhe** (ಹಳ್ಳಿ ಸಂತೆ) means "Village Market" in Kannada.
+> **Halli Santhe** means "Village Market" in Kannada.
 
 ---
 
