@@ -116,8 +116,6 @@ class UploadProductActivity : AppCompatActivity() {
             title = "Upload Product"
         }
 
-        checkIntentForEditMode()
-
         ivProductImage = findViewById(R.id.iv_product_image)
         etName = findViewById(R.id.et_product_name)
         etPrice = findViewById(R.id.et_product_price)
@@ -137,6 +135,7 @@ class UploadProductActivity : AppCompatActivity() {
         spinnerCategory.setAdapter(adapter)
 
         loadSellerName()
+        checkIntentForEditMode()
 
         ivProductImage.setOnClickListener {
             checkPermissionAndPickImage()

@@ -59,13 +59,19 @@ class FavoritesActivity : AppCompatActivity() {
         db.collection("products")
             .get()
             .addOnSuccessListener { snapshot ->
-                productList.clear()
+                val filteredList = ArrayList<Product>()
                 for (doc in snapshot.documents) {
-                    val product = doc.toObject(Product::class.java)
-                    if (product != null && favIds.contains(product.productId)) {
-                        productList.add(product)
+                    try {
+                        val product = doc.toObject(Product::class.java)
+                        if (product != null && favIds.contains(product.productId)) {
+                            filteredList.add(product)
+                        }
+                    } catch (e: Exception) {
+                        // Skip corrupted or incompatible documents to prevent crash
                     }
                 }
+                productList.clear()
+                productList.addAll(filteredList)
                 adapter.updateList(productList)
                 progressBar.visibility = View.GONE
                 if (productList.isEmpty()) {

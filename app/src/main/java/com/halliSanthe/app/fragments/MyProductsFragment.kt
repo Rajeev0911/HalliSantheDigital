@@ -127,9 +127,13 @@ class MyProductsFragment : Fragment() {
 
                 val loadedList = ArrayList<Product>()
                 for (doc in snapshot.documents) {
-                    val product = doc.toObject(Product::class.java)
-                    if (product != null) {
-                        loadedList.add(product)
+                    try {
+                        val product = doc.toObject(Product::class.java)
+                        if (product != null) {
+                            loadedList.add(product)
+                        }
+                    } catch (e: Exception) {
+                        // Skip corrupted or incompatible documents
                     }
                 }
 

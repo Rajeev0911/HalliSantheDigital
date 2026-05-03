@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.halliSanthe.app.R
 import com.halliSanthe.app.activities.LoginActivity
+import com.halliSanthe.app.activities.FavoritesActivity
+import com.halliSanthe.app.activities.EditProfileActivity
 
 class ProfileFragment : Fragment() {
 
@@ -53,7 +55,7 @@ class ProfileFragment : Fragment() {
         btnLogout = view.findViewById(R.id.btn_logout)
 
         view.findViewById<View>(R.id.item_edit_profile).setOnClickListener {
-            startActivity(Intent(requireContext(), com.halliSanthe.app.activities.EditProfileActivity::class.java))
+            startActivity(Intent(requireActivity(), EditProfileActivity::class.java))
         }
 
         view.findViewById<View>(R.id.item_help_support).setOnClickListener {
@@ -65,7 +67,7 @@ class ProfileFragment : Fragment() {
         }
 
         view.findViewById<View>(R.id.item_my_favorites).setOnClickListener {
-            startActivity(Intent(requireContext(), com.halliSanthe.app.activities.FavoritesActivity::class.java))
+            startActivity(Intent(requireActivity(), FavoritesActivity::class.java))
         }
 
         loadProfile()
