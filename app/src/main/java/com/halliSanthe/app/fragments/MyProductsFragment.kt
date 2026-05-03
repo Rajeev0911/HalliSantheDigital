@@ -64,10 +64,19 @@ class MyProductsFragment : Fragment() {
             showDelete = true,
             onDeleteClick = { product ->
                 showDeleteConfirmation(product)
+            },
+            onEditClick = { product ->
+                val intent = Intent(requireContext(), UploadProductActivity::class.java)
+                intent.putExtra("product", product)
+                startActivity(intent)
             }
         )
 
         rvMyProducts.adapter = adapter
+
+        view.findViewById<View>(R.id.btn_empty_upload).setOnClickListener {
+            startActivity(Intent(requireContext(), UploadProductActivity::class.java))
+        }
 
         loadMyProducts()
     }

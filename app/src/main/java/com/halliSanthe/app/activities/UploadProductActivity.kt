@@ -50,6 +50,8 @@ class UploadProductActivity : AppCompatActivity() {
 
     private var selectedImageUri: Uri? = null
     private var sellerName = "Artisan"
+    private var isEditMode = false
+    private var existingProduct: Product? = null
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
@@ -114,6 +116,8 @@ class UploadProductActivity : AppCompatActivity() {
             title = "Upload Product"
         }
 
+        checkIntentForEditMode()
+
         ivProductImage = findViewById(R.id.iv_product_image)
         etName = findViewById(R.id.et_product_name)
         etPrice = findViewById(R.id.et_product_price)
@@ -152,6 +156,33 @@ class UploadProductActivity : AppCompatActivity() {
 
         btnAiGenerate.setOnClickListener {
             generateAiDescription()
+        }
+    }
+
+    private fun checkIntentForEditMode() {
+        if (intent.hasExtra("product")) {
+            existingProduct = intent.getSerializableExtra("product") as? Product
+            if (existingProduct != null) {
+                isEditMode = true
+                supportActionBar?.title = "Edit Product"
+                btnUpload.text = "Update Product"
+                
+                // Fill fields
+                etName.setText(existingProduct?.name)
+                etPrice.setText(existingProduct?.price)
+                etDescription.setText(existingProduct?.description)
+                spinnerCategory.setText(existingProduct?.category, false)
+                
+                // Load existing image
+                layoutPlaceholder.visibility = View.GONE
+                val imageUrl = existingProduct?.imageUrl ?: ""
+                if (imageUrl.length > 500) {
+                    val imageBytes = android.util.Base64.decode(imageUrl, android.util.Base64.DEFAULT)
+                    Glide.with(this).asBitmap().load(imageBytes).centerCrop().into(ivProductImage)
+                } else {
+                    Glide.with(this).load(imageUrl).centerCrop().into(ivProductImage)
+                }
+            }
         }
     }
 
@@ -270,7 +301,7 @@ class UploadProductActivity : AppCompatActivity() {
             return
         }
 
-        if (selectedImageUri == null) {
+        if (selectedImageUri == null && !isEditMode) {
             Toast.makeText(
                 this,
                 "Please select a product image",
@@ -280,10 +311,15 @@ class UploadProductActivity : AppCompatActivity() {
             return
         }
 
-        uploadProduct(name, price, desc, category)
+        if (selectedImageUri != null) {
+            uploadProductWithNewImage(name, price, desc, category)
+        } else {
+            // Keep existing image (only in edit mode)
+            saveProductToFirestore(name, price, desc, category, existingProduct?.imageUrl ?: "")
+        }
     }
 
-    private fun uploadProduct(
+    private fun uploadProductWithNewImage(
         name: String,
         price: String,
         desc: String,
@@ -291,7 +327,7 @@ class UploadProductActivity : AppCompatActivity() {
     ) {
         showLoading(true)
 
-        // Convert image to Base64 string instead of uploading to Storage
+        // Convert image to Base64 string
         val base64Image = ImageCompressHelper.compressToBase64(this, selectedImageUri)
 
         if (base64Image == null) {
@@ -312,11 +348,12 @@ class UploadProductActivity : AppCompatActivity() {
     ) {
         val uid = mAuth.currentUser?.uid ?: ""
         val phone = mAuth.currentUser?.phoneNumber ?: ""
-        val productId = UUID.randomUUID().toString()
+        val productId = if (isEditMode) existingProduct!!.productId else UUID.randomUUID().toString()
+        val timestamp = if (isEditMode) existingProduct!!.timestamp else System.currentTimeMillis()
 
         val product = Product(
             productId, name, price, category, desc, imageUrl, uid, sellerName, phone,
-            System.currentTimeMillis()
+            timestamp
         )
 
         db.collection("products")

@@ -17,7 +17,8 @@ class ProductAdapter(
     private val context: Context,
     private val productList: MutableList<Product>,
     private val showDelete: Boolean = false,
-    private val onDeleteClick: ((Product) -> Unit)? = null
+    private val onDeleteClick: ((Product) -> Unit)? = null,
+    private val onEditClick: ((Product) -> Unit)? = null
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private val productListFull = ArrayList(productList)
@@ -66,14 +67,17 @@ class ProductAdapter(
                 .into(holder.ivProduct)
         }
 
-        // Handle Delete Button
+        // Handle Management Buttons (Delete & Edit)
         if (showDelete) {
-            holder.ivDelete.visibility = View.VISIBLE
+            holder.layoutActions.visibility = View.VISIBLE
             holder.ivDelete.setOnClickListener {
                 onDeleteClick?.invoke(product)
             }
+            holder.ivEdit.setOnClickListener {
+                onEditClick?.invoke(product)
+            }
         } else {
-            holder.ivDelete.visibility = View.GONE
+            holder.layoutActions.visibility = View.GONE
         }
 
         holder.itemView.setOnClickListener {
@@ -140,6 +144,12 @@ class ProductAdapter(
 
         val ivDelete: ImageView =
             itemView.findViewById(R.id.iv_delete)
+
+        val ivEdit: ImageView =
+            itemView.findViewById(R.id.iv_edit)
+
+        val layoutActions: View =
+            itemView.findViewById(R.id.layout_product_actions)
 
         val tvName: TextView =
             itemView.findViewById(R.id.tv_product_name)

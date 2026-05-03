@@ -6,66 +6,80 @@
     android:orientation="vertical"
     android:background="@color/bg_light">
 
-    <!-- Header -->
-    <LinearLayout
+    <!-- Premium Header -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green_700"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
+        android:layout_height="wrap_content">
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/green_700" />
+            
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Browse All Products"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:hintEnabled="false"
-            app:startIconDrawable="@android:drawable/ic_menu_search"
-            app:startIconTint="@color/green_700"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_search"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search for products..."
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingVertical="12dp"
-                android:textSize="14sp" />
+                android:text="Discover Artisan Crafts"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hintEnabled="false"
+                    app:startIconDrawable="@android:drawable/ic_menu_search"
+                    app:startIconTint="@color/green_700"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search for products, categories..."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingVertical="14dp"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </FrameLayout>
 
     <!-- Category Filter Chips -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:paddingVertical="12dp"
+        android:paddingVertical="16dp"
         android:paddingHorizontal="12dp"
-        android:background="@color/white">
+        android:background="@color/bg_light">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_browse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:singleSelection="true"
-            app:chipSpacingHorizontal="8dp" />
+            app:selectionRequired="true"
+            app:chipSpacingHorizontal="10dp" />
 
     </HorizontalScrollView>
 
@@ -98,29 +112,49 @@
             android:padding="32dp"
             android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🏪"
-                android:textSize="64sp" />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/green_50">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="🏪"
+                    android:textSize="50sp"
+                    android:gravity="center" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nothing in this category"
+                android:text="No Treasures Found"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Try a different category or check back later"
+                android:text="We couldn't find any products in this category. Try exploring something else!"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:gravity="center"
                 android:layout_marginTop="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_browse_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Browse All Categories"
+                android:textAllCaps="false"
+                app:cornerRadius="20dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/green_700"
+                android:textColor="@color/green_700" />
 
         </LinearLayout>
 

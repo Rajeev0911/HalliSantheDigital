@@ -202,11 +202,13 @@
                     android:layout_height="wrap_content"
                     android:text="✨ Magic Description"
                     android:textColor="@color/green_700"
-                    android:textSize="11sp"
+                    android:textSize="12sp"
                     android:textAllCaps="false"
+                    android:includeFontPadding="false"
+                    android:paddingVertical="4dp"
                     app:icon="@android:drawable/ic_menu_edit"
-                    app:iconSize="14dp"
-                    app:iconPadding="4dp" />
+                    app:iconSize="16dp"
+                    app:iconPadding="6dp" />
 
             </LinearLayout>
 

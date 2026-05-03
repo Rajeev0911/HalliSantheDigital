@@ -45,6 +45,12 @@
             android:exported="false"
             android:theme="@style/Theme.HalliSanthe.NoActionBar" />
 
+        <activity
+            android:name=".activities.EditProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HalliSanthe.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

@@ -90,6 +90,18 @@ class BrowseFragment : Fragment() {
 
         buildChips()
 
+        view.findViewById<View>(R.id.btn_browse_all).setOnClickListener {
+            // Find "All" chip and check it
+            for (i in 0 until chipGroup.childCount) {
+                val chip = chipGroup.getChildAt(i) as Chip
+                if (chip.text == "All") {
+                    chip.isChecked = true
+                    loadProducts("All")
+                    break
+                }
+            }
+        }
+
         loadProducts("All")
     }
 

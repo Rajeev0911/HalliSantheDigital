@@ -12,16 +12,17 @@ object GeminiHelper {
 
     private val model = GenerativeModel(
         modelName = "gemini-1.5-flash",
-        apiKey = API_KEY
+        apiKey = API_KEY,
+        systemInstruction = content { text("You are an expert copywriter for 'Halli-Santhe', an Indian artisan marketplace. Your job is to write short, evocative, and traditional descriptions for products. Use a warm, professional, and cultural tone.") }
     )
 
     suspend fun generateDescription(productName: String, category: String): String? {
         return withContext(Dispatchers.IO) {
             try {
-                val prompt = "Generate a short, attractive, and traditional-sounding description (max 2-3 sentences) for a product named '$productName' in the '$category' category for an Indian artisan market app called Halli-Santhe."
+                val prompt = "Generate a short, attractive, and traditional-sounding description (max 2 sentences) for a product named '$productName' in the '$category' category."
                 
                 val response = model.generateContent(prompt)
-                response.text
+                response.text?.trim()
             } catch (e: Exception) {
                 e.printStackTrace()
                 null
