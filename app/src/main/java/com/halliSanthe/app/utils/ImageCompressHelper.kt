@@ -41,17 +41,13 @@ object ImageCompressHelper {
                 MAX_HEIGHT
             )
 
-            val outputDir =
-                context.getExternalFilesDir(
-                    Environment.DIRECTORY_PICTURES
-                )
+            val outputDir = context.cacheDir
 
-            val outputFile =
-                File.createTempFile(
-                    "compressed_",
-                    ".jpg",
-                    outputDir
-                )
+            val outputFile = File.createTempFile(
+                "compressed_",
+                ".jpg",
+                outputDir
+            )
 
             val fos = FileOutputStream(outputFile)
 
@@ -110,5 +106,11 @@ object ImageCompressHelper {
             newHeight,
             true
         )
+    }
+
+    fun compressToBase64(context: Context, imageUri: Uri?): String? {
+        val file = compressImage(context, imageUri) ?: return null
+        val bytes = file.readBytes()
+        return android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT)
     }
 }

@@ -66,10 +66,19 @@ class ProductDetailActivity : AppCompatActivity() {
             tvSellerName.text = it.sellerName
             tvSellerPhone.text = it.sellerPhone
 
-            Glide.with(this)
-                .load(it.imageUrl)
-                .placeholder(R.drawable.placeholder_image)
-                .into(ivProductImage)
+            if (it.imageUrl.length > 500) {
+                val imageBytes = android.util.Base64.decode(it.imageUrl, android.util.Base64.DEFAULT)
+                Glide.with(this)
+                    .asBitmap()
+                    .load(imageBytes)
+                    .placeholder(R.drawable.placeholder_image)
+                    .into(ivProductImage)
+            } else {
+                Glide.with(this)
+                    .load(it.imageUrl)
+                    .placeholder(R.drawable.placeholder_image)
+                    .into(ivProductImage)
+            }
         }
     }
 

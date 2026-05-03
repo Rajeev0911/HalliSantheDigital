@@ -46,11 +46,23 @@ class ProductAdapter(
         holder.tvPrice.text = "₹ ${product.price}"
         holder.tvCategory.text = product.category
 
-        Glide.with(context)
-            .load(product.imageUrl)
-            .placeholder(R.drawable.placeholder_image)
-            .centerCrop()
-            .into(holder.ivProduct)
+        if (product.imageUrl.length > 500) {
+            // It's a Base64 string
+            val imageBytes = android.util.Base64.decode(product.imageUrl, android.util.Base64.DEFAULT)
+            Glide.with(context)
+                .asBitmap()
+                .load(imageBytes)
+                .placeholder(R.drawable.placeholder_image)
+                .centerCrop()
+                .into(holder.ivProduct)
+        } else {
+            // It's a regular URL
+            Glide.with(context)
+                .load(product.imageUrl)
+                .placeholder(R.drawable.placeholder_image)
+                .centerCrop()
+                .into(holder.ivProduct)
+        }
 
         holder.itemView.setOnClickListener {
 
@@ -97,13 +109,14 @@ class ProductAdapter(
     }
 
     fun updateList(newList: List<Product>) {
-
+        // Create a new list for the internal reference to avoid clearing issues
         productList.clear()
-        productListFull.clear()
-
         productList.addAll(newList)
+        
+        // Always sync the full list for searching
+        productListFull.clear()
         productListFull.addAll(newList)
-
+        
         notifyDataSetChanged()
     }
 

@@ -289,97 +289,47 @@ class UploadProductActivity : AppCompatActivity() {
         desc: String,
         category: String
     ) {
-
         showLoading(true)
 
-        val compressedFile: File? =
-            ImageCompressHelper.compressImage(
-                this,
-                selectedImageUri
-            )
+        // Convert image to Base64 string instead of uploading to Storage
+        val base64Image = ImageCompressHelper.compressToBase64(this, selectedImageUri)
 
-        if (compressedFile == null) {
-
-            Toast.makeText(
-                this,
-                "Image compression failed",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (base64Image == null) {
             showLoading(false)
-
+            Toast.makeText(this, "Image processing failed", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val imageFileName =
-            "product_${UUID.randomUUID()}.jpg"
+        saveProductToFirestore(name, price, desc, category, base64Image)
+    }
 
-        val imageRef =
-            storageRef.child(imageFileName)
+    private fun saveProductToFirestore(
+        name: String,
+        price: String,
+        desc: String,
+        category: String,
+        imageUrl: String
+    ) {
+        val uid = mAuth.currentUser?.uid ?: ""
+        val phone = mAuth.currentUser?.phoneNumber ?: ""
+        val productId = UUID.randomUUID().toString()
 
-        imageRef.putFile(Uri.fromFile(compressedFile))
+        val product = Product(
+            productId, name, price, category, desc, imageUrl, uid, sellerName, phone,
+            System.currentTimeMillis()
+        )
+
+        db.collection("products")
+            .document(productId)
+            .set(product)
             .addOnSuccessListener {
-
-                imageRef.downloadUrl
-                    .addOnSuccessListener { downloadUri ->
-
-                        val uid =
-                            mAuth.currentUser?.uid ?: ""
-
-                        val phone =
-                            mAuth.currentUser?.phoneNumber ?: ""
-
-                        val pid =
-                            UUID.randomUUID().toString()
-
-                        val product = Product(
-                            pid,
-                            name,
-                            price,
-                            category,
-                            desc,
-                            downloadUri.toString(),
-                            uid,
-                            sellerName,
-                            phone
-                        )
-
-                        db.collection("products")
-                            .document(pid)
-                            .set(product)
-                            .addOnSuccessListener {
-
-                                showLoading(false)
-
-                                Toast.makeText(
-                                    this,
-                                    "Product uploaded successfully!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
-                                finish()
-                            }
-                            .addOnFailureListener { e ->
-
-                                showLoading(false)
-
-                                Toast.makeText(
-                                    this,
-                                    "Failed to save product: ${e.message}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                    }
+                showLoading(false)
+                Toast.makeText(this, "Product uploaded successfully!", Toast.LENGTH_SHORT).show()
+                finish()
             }
             .addOnFailureListener { e ->
-
                 showLoading(false)
-
-                Toast.makeText(
-                    this,
-                    "Image upload failed: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Firestore Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
