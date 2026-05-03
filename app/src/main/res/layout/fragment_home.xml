@@ -6,14 +6,13 @@
     android:orientation="vertical"
     android:background="@color/bg_light">
 
-    <!-- Green App Bar -->
+    <!-- Green App Bar & Welcome Banner -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_700"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:paddingBottom="20dp">
+        android:padding="16dp">
 
         <!-- Title Row -->
         <LinearLayout
@@ -21,87 +20,170 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="🛒 Halli-Santhe"
+                android:text="Halli-Santhe"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/iv_notifications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🔔"
                 android:textSize="22sp"
-                android:layout_marginEnd="12dp" />
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
 
             <TextView
+                android:id="@+id/iv_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="👤"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
 
         </LinearLayout>
 
-        <!-- Search Bar -->
+        <!-- Welcome Banner Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="28dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white">
+            android:layout_height="140dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#22FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🔍"
-                    android:textSize="18sp"
-                    android:layout_marginEnd="8dp" />
+                    android:text="Namaskara!"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et_search"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Search products…"
-                    android:background="@null"
+                    android:text="Discover the heart of rural artistry.\nHandpicked just for you."
+                    android:textColor="#EEFFFFFF"
                     android:textSize="14sp"
-                    android:maxLines="1"
-                    android:inputType="text"
-                    android:imeOptions="actionSearch" />
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="2dp" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨"
+                android:textSize="80sp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="-20dp"
+                android:alpha="0.2" />
+
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
-    <!-- Category Chips (horizontal scroll) -->
-    <HorizontalScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="12dp"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:clipToPadding="false">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group_categories"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:singleSelection="true"
-            app:chipSpacingHorizontal="8dp" />
+            android:orientation="vertical"
+            android:paddingBottom="80dp">
 
-    </HorizontalScrollView>
+            <!-- Search Bar (Sticky-style) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔍"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="12dp" />
+
+                    <EditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search handicrafts, spices..."
+                        android:background="@null"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Category Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:chipSpacingHorizontal="8dp" />
+
+            </HorizontalScrollView>
+
+            <!-- Grid Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore All"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" />
 
     <!-- Product Grid -->
     <FrameLayout
@@ -162,5 +244,8 @@
         </LinearLayout>
 
     </FrameLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

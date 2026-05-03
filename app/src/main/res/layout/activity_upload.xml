@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            android:paddingBottom="80dp">
 
             <!-- Image Upload Box -->
             <com.google.android.material.card.MaterialCardView
@@ -168,7 +169,11 @@
                     android:inputType="none"
                     android:editable="false"
                     android:focusable="false"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -234,15 +239,19 @@
                 android:indeterminateTint="@color/green_700" />
 
             <!-- Upload Button -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_upload"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:includeFontPadding="false"
                 android:text="Upload Product"
+                android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:cornerRadius="12dp"
                 style="@style/OrangeButton" />
 
         </LinearLayout>

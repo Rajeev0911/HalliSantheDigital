@@ -55,29 +55,45 @@ class MyProductsFragment : Fragment() {
         progressBar = view.findViewById(R.id.progress_bar)
         layoutEmpty = view.findViewById(R.id.layout_empty)
 
-        val fabAdd: FloatingActionButton =
-            view.findViewById(R.id.fab_add_product)
-
-        fabAdd.setOnClickListener {
-            startActivity(
-                Intent(
-                    requireContext(),
-                    UploadProductActivity::class.java
-                )
-            )
-        }
-
         rvMyProducts.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
         adapter = ProductAdapter(
             requireContext(),
-            productList
+            productList,
+            showDelete = true,
+            onDeleteClick = { product ->
+                showDeleteConfirmation(product)
+            }
         )
 
         rvMyProducts.adapter = adapter
 
         loadMyProducts()
+    }
+
+    private fun showDeleteConfirmation(product: Product) {
+        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("Delete Product")
+            .setMessage("Are you sure you want to delete '${product.name}'?")
+            .setPositiveButton("Delete") { _, _ ->
+                deleteProduct(product)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun deleteProduct(product: Product) {
+        db.collection("products")
+            .document(product.productId)
+            .delete()
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Product deleted", Toast.LENGTH_SHORT).show()
+                loadMyProducts() // Refresh the list
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onResume() {

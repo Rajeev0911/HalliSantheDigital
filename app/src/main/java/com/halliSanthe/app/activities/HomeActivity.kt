@@ -57,6 +57,10 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    fun switchToProfile() {
+        bottomNav.selectedItemId = R.id.nav_profile
+    }
+
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()

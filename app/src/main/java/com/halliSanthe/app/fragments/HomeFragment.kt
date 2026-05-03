@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ import com.google.android.material.chip.ChipGroup
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.halliSanthe.app.R
+import com.halliSanthe.app.activities.HomeActivity
 import com.halliSanthe.app.adapters.ProductAdapter
 import com.halliSanthe.app.models.Product
 
@@ -70,6 +72,7 @@ class HomeFragment : Fragment() {
         etSearch = view.findViewById(R.id.et_search)
         chipGroup = view.findViewById(R.id.chip_group_categories)
 
+        rvProducts.isNestedScrollingEnabled = false
         rvProducts.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
@@ -108,6 +111,17 @@ class HomeFragment : Fragment() {
             }
         })
 
+        buildCategoryChips()
+
+        view.findViewById<View>(R.id.iv_notifications).setOnClickListener {
+            Toast.makeText(requireContext(), "You're all caught up! 🔔", Toast.LENGTH_SHORT).show()
+        }
+
+        view.findViewById<View>(R.id.iv_profile).setOnClickListener {
+            // Tell the activity to switch to the profile fragment
+            (activity as? HomeActivity)?.switchToProfile()
+        }
+
         loadProducts("All")
     }
 
@@ -136,6 +150,10 @@ class HomeFragment : Fragment() {
 
             chip.setChipStrokeColorResource(R.color.green_500)
             chip.chipStrokeWidth = 1f
+            
+            // Add internal padding to chips
+            chip.chipStartPadding = 12f
+            chip.chipEndPadding = 12f
 
             if (cat == "All") {
                 chip.isChecked = true

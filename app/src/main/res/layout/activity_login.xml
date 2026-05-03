@@ -122,14 +122,19 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Send OTP Button -->
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_send_otp"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:includeFontPadding="false"
                     android:text="Send OTP"
+                    android:textAllCaps="false"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    app:cornerRadius="12dp"
                     style="@style/GreenButton" />
 
                 <!-- OTP Field (hidden initially) -->
@@ -175,15 +180,20 @@
                 </LinearLayout>
 
                 <!-- Verify OTP Button -->
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_verify_otp"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:includeFontPadding="false"
                     android:text="Verify &amp; Continue"
+                    android:textAllCaps="false"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:visibility="gone"
+                    app:cornerRadius="12dp"
                     style="@style/OrangeButton" />
 
                 <!-- Progress Bar -->

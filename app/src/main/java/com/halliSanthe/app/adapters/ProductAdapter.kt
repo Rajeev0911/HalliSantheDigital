@@ -15,7 +15,9 @@ import com.halliSanthe.app.models.Product
 
 class ProductAdapter(
     private val context: Context,
-    private val productList: MutableList<Product>
+    private val productList: MutableList<Product>,
+    private val showDelete: Boolean = false,
+    private val onDeleteClick: ((Product) -> Unit)? = null
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private val productListFull = ArrayList(productList)
@@ -62,6 +64,16 @@ class ProductAdapter(
                 .placeholder(R.drawable.placeholder_image)
                 .centerCrop()
                 .into(holder.ivProduct)
+        }
+
+        // Handle Delete Button
+        if (showDelete) {
+            holder.ivDelete.visibility = View.VISIBLE
+            holder.ivDelete.setOnClickListener {
+                onDeleteClick?.invoke(product)
+            }
+        } else {
+            holder.ivDelete.visibility = View.GONE
         }
 
         holder.itemView.setOnClickListener {
@@ -125,6 +137,9 @@ class ProductAdapter(
 
         val ivProduct: ImageView =
             itemView.findViewById(R.id.iv_product)
+
+        val ivDelete: ImageView =
+            itemView.findViewById(R.id.iv_delete)
 
         val tvName: TextView =
             itemView.findViewById(R.id.tv_product_name)

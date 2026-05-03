@@ -105,6 +105,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Seller Card -->
+
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,13 +198,18 @@
         android:background="@color/white"
         android:elevation="8dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_contact_seller"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:includeFontPadding="false"
             android:text="📱  Contact Seller on WhatsApp"
-            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:cornerRadius="12dp"
             style="@style/OrangeButton" />
 
     </LinearLayout>

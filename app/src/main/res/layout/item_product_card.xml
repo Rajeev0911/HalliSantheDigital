@@ -15,14 +15,33 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Product Image -->
-        <ImageView
-            android:id="@+id/iv_product"
+        <!-- Product Image & Delete Button -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Product Image"
-            android:background="@color/green_50" />
+            android:layout_height="140dp">
+
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="Product Image"
+                android:background="@color/green_50" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:background="@drawable/bg_delete_circle"
+                android:visibility="gone"
+                app:tint="@color/white"
+                android:clickable="true"
+                android:focusable="true" />
+        </FrameLayout>
 
         <!-- Category Badge -->
         <com.google.android.material.chip.Chip
