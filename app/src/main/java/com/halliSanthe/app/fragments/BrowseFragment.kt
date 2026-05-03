@@ -152,19 +152,15 @@ class BrowseFragment : Fragment() {
         query.get()
             .addOnSuccessListener { snapshot ->
 
-                productList.clear()
-
+                val loadedList = ArrayList<Product>()
                 for (doc in snapshot.documents) {
-
-                    val product =
-                        doc.toObject(Product::class.java)
-
+                    val product = doc.toObject(Product::class.java)
                     if (product != null) {
-                        productList.add(product)
+                        loadedList.add(product)
                     }
                 }
 
-                adapter.updateList(productList)
+                adapter.updateList(loadedList)
 
                 progressBar.visibility = View.GONE
 
