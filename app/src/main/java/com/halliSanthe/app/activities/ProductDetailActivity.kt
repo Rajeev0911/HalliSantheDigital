@@ -23,8 +23,13 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var tvSellerName: TextView
     private lateinit var tvSellerPhone: TextView
     private lateinit var btnContact: Button
+    private lateinit var btnCall: Button
+    private lateinit var btnFavorite: android.view.View
+    private lateinit var tvFavIcon: TextView
+    private lateinit var btnShare: android.view.View
 
     private var product: Product? = null
+    private var isFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +48,10 @@ class ProductDetailActivity : AppCompatActivity() {
         tvSellerName = findViewById(R.id.tv_seller_name)
         tvSellerPhone = findViewById(R.id.tv_seller_phone)
         btnContact = findViewById(R.id.btn_contact_seller)
+        btnCall = findViewById(R.id.btn_call_seller)
+        btnFavorite = findViewById(R.id.btn_favorite)
+        tvFavIcon = findViewById(R.id.tv_fav_icon)
+        btnShare = findViewById(R.id.btn_share_product)
 
         product = intent.getSerializableExtra("product") as? Product
 
@@ -55,6 +64,18 @@ class ProductDetailActivity : AppCompatActivity() {
         btnContact.setOnClickListener {
             contactSeller()
         }
+
+        btnCall.setOnClickListener {
+            callSeller()
+        }
+
+        btnFavorite.setOnClickListener {
+            toggleFavorite()
+        }
+
+        btnShare.setOnClickListener {
+            shareProduct()
+        }
     }
 
     private fun populateDetails() {
@@ -65,6 +86,10 @@ class ProductDetailActivity : AppCompatActivity() {
             chipCategory.text = it.category
             tvSellerName.text = it.sellerName
             tvSellerPhone.text = it.sellerPhone
+
+            // Set initial favorite state
+            isFavorite = com.halliSanthe.app.utils.FavoritesManager.isFavorite(this, it.productId ?: "")
+            updateFavoriteUI()
 
             if (it.imageUrl.length > 500) {
                 val imageBytes = android.util.Base64.decode(it.imageUrl, android.util.Base64.DEFAULT)
@@ -84,22 +109,64 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun contactSeller() {
         val phone = product?.sellerPhone ?: return
+        val formattedPhone = getFormattedPhone(phone)
         val productName = product?.name ?: "Product"
         
-        // WhatsApp URL
         val message = "Hi, I am interested in your product: $productName on Halli-Santhe Digital."
-        val url = "https://api.whatsapp.com/send?phone=+91$phone&text=${Uri.encode(message)}"
+        val url = "https://api.whatsapp.com/send?phone=$formattedPhone&text=${Uri.encode(message)}"
         
         try {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
             startActivity(intent)
         } catch (e: Exception) {
-            // Fallback to dialer if WhatsApp is not installed or fail
-            val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:+91$phone")
-            startActivity(intent)
+            callSeller()
         }
+    }
+
+    private fun callSeller() {
+        val phone = product?.sellerPhone ?: return
+        val formattedPhone = getFormattedPhone(phone)
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:+$formattedPhone")
+        startActivity(intent)
+    }
+
+    private fun getFormattedPhone(phone: String): String {
+        var cleanPhone = phone.replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
+        if (cleanPhone.startsWith("+")) {
+            cleanPhone = cleanPhone.substring(1)
+        }
+        // If it starts with 91 and is longer than a standard 10-digit number, remove the 91
+        if (cleanPhone.startsWith("91") && cleanPhone.length > 10) {
+            cleanPhone = cleanPhone.substring(2)
+        }
+        return "91$cleanPhone"
+    }
+
+    private fun shareProduct() {
+        val productName = product?.name ?: "Product"
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out this handicraft!")
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Look at this beautiful $productName I found on Halli-Santhe Digital! Support our local artisans.")
+        startActivity(Intent.createChooser(shareIntent, "Share via"))
+    }
+
+    private fun toggleFavorite() {
+        val pid = product?.productId ?: return
+        isFavorite = com.halliSanthe.app.utils.FavoritesManager.toggleFavorite(this, pid)
+        updateFavoriteUI()
+        
+        if (isFavorite) {
+            android.widget.Toast.makeText(this, "Added to Favorites!", android.widget.Toast.LENGTH_SHORT).show()
+        } else {
+            android.widget.Toast.makeText(this, "Removed from Favorites", android.widget.Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateFavoriteUI() {
+        tvFavIcon.text = if (isFavorite) "❤️" else "🤍"
     }
 
     override fun onSupportNavigateUp(): Boolean {

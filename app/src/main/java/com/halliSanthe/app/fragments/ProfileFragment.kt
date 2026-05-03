@@ -64,6 +64,10 @@ class ProfileFragment : Fragment() {
             showAboutDialog()
         }
 
+        view.findViewById<View>(R.id.item_my_favorites).setOnClickListener {
+            startActivity(Intent(requireContext(), com.halliSanthe.app.activities.FavoritesActivity::class.java))
+        }
+
         loadProfile()
 
         btnLogout.setOnClickListener {

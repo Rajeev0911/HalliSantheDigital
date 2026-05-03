@@ -268,35 +268,71 @@
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginHorizontal="16dp" />
 
-                    <!-- About Halli-Santhe -->
+                    <!-- About Item -->
                     <LinearLayout
                         android:id="@+id/item_about_app"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="?attr/selectableItemBackground"
                         android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackground">
+                        android:focusable="true">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📜"
-                            android:textSize="18sp" />
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="ℹ️"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_edit_circle" />
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginStart="16dp"
                             android:text="About Halli-Santhe"
                             android:textColor="@color/text_primary"
-                            android:textSize="15sp" />
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="›"
+                            android:textSize="24sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <!-- My Favorites Item -->
+                    <LinearLayout
+                        android:id="@+id/item_my_favorites"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="12dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="❤️"
                             android:textSize="20sp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_edit_circle" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="My Favorites"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textSize="24sp"
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
 

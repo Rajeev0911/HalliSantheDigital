@@ -51,6 +51,11 @@
             android:theme="@style/Theme.HalliSanthe.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".activities.FavoritesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HalliSanthe.NoActionBar" />
+
     </application>
 
 </manifest>
