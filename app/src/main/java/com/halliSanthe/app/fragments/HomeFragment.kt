@@ -122,6 +122,10 @@ class HomeFragment : Fragment() {
             (activity as? HomeActivity)?.switchToProfile()
         }
 
+        view.findViewById<View>(R.id.tv_see_all_artisans).setOnClickListener {
+            startActivity(android.content.Intent(requireContext(), com.halliSanthe.app.activities.ArtisansActivity::class.java))
+        }
+
         loadProducts("All")
     }
 

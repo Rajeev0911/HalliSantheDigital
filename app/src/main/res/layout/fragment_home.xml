@@ -147,16 +147,36 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Community / Artisans of the Month -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Artisans of the Month Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Artisans of the Month"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp" />
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Artisans of the Month"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_see_all_artisans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="See All"
+                    android:textColor="@color/green_700"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </RelativeLayout>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -192,7 +212,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aryan"
+                            android:text="Manjunath"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:layout_marginTop="8dp" />
@@ -226,7 +246,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vihaan"
+                            android:text="Gowri"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:layout_marginTop="8dp" />
@@ -259,7 +279,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Anika"
+                            android:text="Basavaraj"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:layout_marginTop="8dp" />
@@ -457,6 +477,71 @@
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="#0288D1"
+                                android:layout_gravity="center" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Featured 4 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#E8F5E9">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🎋 Bamboo Crafts"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#2E7D32"
+                                android:layout_gravity="center" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Featured 5 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FBE9E7">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="👞 Leather Works"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#D84315"
+                                android:layout_gravity="center" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Featured 6 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF3E0">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌶️ Organic Spices"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#EF6C00"
                                 android:layout_gravity="center" />
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>

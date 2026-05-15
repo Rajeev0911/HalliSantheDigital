@@ -56,6 +56,16 @@
             android:exported="false"
             android:theme="@style/Theme.HalliSanthe.NoActionBar" />
 
+        <activity
+            android:name=".activities.ArtisansActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HalliSanthe.NoActionBar" />
+
+        <activity
+            android:name=".activities.ArtisanDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HalliSanthe.NoActionBar" />
+
     </application>
 
 </manifest>

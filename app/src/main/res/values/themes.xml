@@ -67,4 +67,7 @@
         <item name="titleTextColor">@color/white</item>
     </style>
 
+    <style name="Theme.HalliSanthe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.HalliSanthe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
