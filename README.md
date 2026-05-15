@@ -102,26 +102,3 @@ app/src/main/java/com/halliSanthe/app/
 | Splash | Login | Home | Browse | Upload |
 |--------|-------|------|--------|--------|
 | Launch screen | OTP verification | Featured products | Category filters | AI descriptions |
-
----
-
-## 🔮 Future Roadmap
-
-- [ ] In-app payment integration (UPI / Razorpay)
-- [ ] Order management system
-- [ ] Multi-language support (Kannada, Hindi, English)
-- [ ] Push notifications for new products
-- [ ] Seller ratings and reviews
-- [ ] Location-based product discovery
-
----
-
-## 📄 License
-
-This project is for educational purposes.
-
----
-
-<p align="center">
-  Made with ❤️ for rural India 🇮🇳
-</p>
