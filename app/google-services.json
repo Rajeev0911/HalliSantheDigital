@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "848322844371",
-    "project_id": "testing-f3a5c",
-    "storage_bucket": "testing-f3a5c.firebasestorage.app"
+    "project_number": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:848322844371:android:3204a454c51597701d2626",
+        "mobilesdk_app_id": "",
         "android_client_info": {
-          "package_name": "com.halliSanthe.app"
+          "package_name": ""
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBSBimZq8DlroCogAxoki6S7aEHWRi6lw0"
+          "current_key": ""
         }
       ],
       "services": {

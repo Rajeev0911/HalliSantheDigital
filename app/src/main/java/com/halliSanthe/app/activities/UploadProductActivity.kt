@@ -166,13 +166,11 @@ class UploadProductActivity : AppCompatActivity() {
                 supportActionBar?.title = "Edit Product"
                 btnUpload.text = "Update Product"
                 
-                // Fill fields
                 etName.setText(existingProduct?.name)
                 etPrice.setText(existingProduct?.price)
                 etDescription.setText(existingProduct?.description)
                 spinnerCategory.setText(existingProduct?.category, false)
                 
-                // Load existing image
                 layoutPlaceholder.visibility = View.GONE
                 val imageUrl = existingProduct?.imageUrl ?: ""
                 if (imageUrl.length > 500) {
@@ -313,7 +311,6 @@ class UploadProductActivity : AppCompatActivity() {
         if (selectedImageUri != null) {
             uploadProductWithNewImage(name, price, desc, category)
         } else {
-            // Keep existing image (only in edit mode)
             saveProductToFirestore(name, price, desc, category, existingProduct?.imageUrl ?: "")
         }
     }
@@ -326,7 +323,6 @@ class UploadProductActivity : AppCompatActivity() {
     ) {
         showLoading(true)
 
-        // Convert image to Base64 string
         val base64Image = ImageCompressHelper.compressToBase64(this, selectedImageUri)
 
         if (base64Image == null) {

@@ -54,8 +54,7 @@ class FavoritesActivity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
         layoutEmpty.visibility = View.GONE
 
-        // Firestore 'in' query has a limit of 10 items. 
-        // For a simple app, we will just fetch all favorites.
+
         db.collection("products")
             .get()
             .addOnSuccessListener { snapshot ->
@@ -67,7 +66,6 @@ class FavoritesActivity : AppCompatActivity() {
                             filteredList.add(product)
                         }
                     } catch (e: Exception) {
-                        // Skip corrupted or incompatible documents to prevent crash
                     }
                 }
                 productList.clear()

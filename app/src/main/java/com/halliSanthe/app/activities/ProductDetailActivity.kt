@@ -87,7 +87,6 @@ class ProductDetailActivity : AppCompatActivity() {
             tvSellerName.text = it.sellerName
             tvSellerPhone.text = it.sellerPhone
 
-            // Set initial favorite state
             isFavorite = com.halliSanthe.app.utils.FavoritesManager.isFavorite(this, it.productId ?: "")
             updateFavoriteUI()
 
@@ -137,7 +136,6 @@ class ProductDetailActivity : AppCompatActivity() {
         if (cleanPhone.startsWith("+")) {
             cleanPhone = cleanPhone.substring(1)
         }
-        // If it starts with 91 and is longer than a standard 10-digit number, remove the 91
         if (cleanPhone.startsWith("91") && cleanPhone.length > 10) {
             cleanPhone = cleanPhone.substring(2)
         }

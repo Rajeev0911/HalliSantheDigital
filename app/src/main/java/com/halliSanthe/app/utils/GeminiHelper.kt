@@ -7,8 +7,7 @@ import kotlinx.coroutines.withContext
 
 object GeminiHelper {
 
-    // IMPORTANT: Replace with your actual Gemini API Key
-    private const val API_KEY = "AIzaSyDqAqM0xVrAZuyelMpAvgZhVdZyIZP7qGk"
+    private const val API_KEY = ""
 
     private val model = GenerativeModel(
         modelName = "gemini-1.5-flash",

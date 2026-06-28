@@ -1,10 +1,6 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    // Downgraded to 8.1.1 (Ultra-stable version)
     id 'com.android.application' version '8.1.1' apply false
     id 'com.android.library' version '8.1.1' apply false
-    // Downgraded to 1.8.22 (Most compatible version for this setup)
     id 'org.jetbrains.kotlin.android' version '1.8.22' apply false
-    // Stable version that doesn't have the mutation bug
     id 'com.google.gms.google-services' version '4.3.15' apply false
 }

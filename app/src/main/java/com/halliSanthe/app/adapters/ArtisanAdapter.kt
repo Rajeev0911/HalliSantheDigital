@@ -41,13 +41,12 @@ class ArtisanAdapter(
             holder.tvInitials.visibility = View.VISIBLE
             holder.tvInitials.text = artisan.initials
             
-            // Generate a color based on the name for variety
             val colors = listOf(
-                0xFF2E7D32.toInt(), // Green
-                0xFF1565C0.toInt(), // Blue
-                0xFFD84315.toInt(), // Deep Orange
-                0xFF6A1B9A.toInt(), // Purple
-                0xFF00838F.toInt()  // Cyan
+                0xFF2E7D32.toInt(), 
+                0xFF1565C0.toInt(), 
+                0xFFD84315.toInt(), 
+                0xFF6A1B9A.toInt(), 
+                0xFF00838F.toInt()  
             )
             val colorIndex = Math.abs(artisan.name.hashCode()) % colors.size
             holder.tvInitials.setBackgroundColor(colors[colorIndex])

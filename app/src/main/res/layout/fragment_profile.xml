@@ -17,7 +17,6 @@
             android:orientation="vertical"
             android:paddingBottom="40dp">
 
-            <!-- Premium Header -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp">
@@ -74,7 +73,6 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <!-- Stats Grid -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +171,6 @@
 
             </LinearLayout>
 
-            <!-- Account Actions -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -200,7 +197,6 @@
                     android:orientation="vertical"
                     android:padding="8dp">
 
-                    <!-- Edit Profile Item -->
                     <LinearLayout
                         android:id="@+id/item_edit_profile"
                         android:layout_width="match_parent"
@@ -234,7 +230,6 @@
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginHorizontal="16dp" />
 
-                    <!-- Help & Support -->
                     <LinearLayout
                         android:id="@+id/item_help_support"
                         android:layout_width="match_parent"
@@ -268,7 +263,6 @@
 
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginHorizontal="16dp" />
 
-                    <!-- About Item -->
                     <LinearLayout
                         android:id="@+id/item_about_app"
                         android:layout_width="match_parent"
@@ -302,7 +296,6 @@
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
 
-                    <!-- My Favorites Item -->
                     <LinearLayout
                         android:id="@+id/item_my_favorites"
                         android:layout_width="match_parent"
@@ -339,7 +332,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Logout Section -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"

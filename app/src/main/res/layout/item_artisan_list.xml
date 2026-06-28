@@ -16,7 +16,6 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- Avatar Container -->
         <FrameLayout
             android:layout_width="60dp"
             android:layout_height="60dp">

@@ -5,7 +5,7 @@ import java.io.Serializable
 data class Artisan(
     val name: String,
     val specialty: String,
-    val imageRes: Int? = null, // Resource ID if using existing drawable
+    val imageRes: Int? = null, 
     val bio: String = "",
     val age: Int = 45,
     val phone: String = "+919876543210"

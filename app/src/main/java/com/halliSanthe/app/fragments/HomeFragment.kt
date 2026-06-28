@@ -118,7 +118,6 @@ class HomeFragment : Fragment() {
         }
 
         view.findViewById<View>(R.id.iv_profile).setOnClickListener {
-            // Tell the activity to switch to the profile fragment
             (activity as? HomeActivity)?.switchToProfile()
         }
 
@@ -155,7 +154,6 @@ class HomeFragment : Fragment() {
             chip.setChipStrokeColorResource(R.color.green_500)
             chip.chipStrokeWidth = 1f
             
-            // Add internal padding to chips
             chip.chipStartPadding = 12f
             chip.chipEndPadding = 12f
 
@@ -201,7 +199,6 @@ class HomeFragment : Fragment() {
                             loadedList.add(product)
                         }
                     } catch (e: Exception) {
-                        // Skip corrupted or incompatible documents
                     }
                 }
 

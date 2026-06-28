@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:paddingBottom="80dp">
 
-            <!-- Green App Bar & Welcome Banner -->
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Title Row -->
+                
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
 
                 </LinearLayout>
 
-                <!-- Welcome Banner Card -->
+                
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
@@ -113,7 +113,7 @@
 
             </LinearLayout>
 
-            <!-- Search Bar (Sticky-style) -->
+            
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Artisans of the Month Header -->
+            
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Artisan 1 -->
+                    
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
 
-                    <!-- Artisan 2 -->
+                    
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -258,7 +258,7 @@
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
 
-                    <!-- Artisan 3 -->
+                    
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- Category Header -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -321,7 +321,7 @@
 
             </HorizontalScrollView>
 
-            <!-- Grid Header -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -332,7 +332,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp" />
 
-    <!-- Product Grid -->
+    
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -345,7 +345,7 @@
             android:padding="12dp"
             android:clipToPadding="false" />
 
-        <!-- Progress Bar -->
+        
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
@@ -354,7 +354,7 @@
             android:visibility="gone"
             android:indeterminateTint="@color/green_700" />
 
-        <!-- Empty State -->
+        
         <LinearLayout
             android:id="@+id/layout_empty"
             android:layout_width="match_parent"
@@ -392,7 +392,7 @@
 
     </FrameLayout>
 
-            <!-- Featured Collections -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -415,7 +415,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Featured 1 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -437,7 +437,7 @@
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Featured 2 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -459,7 +459,7 @@
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Featured 3 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -481,7 +481,7 @@
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Featured 4 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -503,7 +503,7 @@
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Featured 5 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -525,7 +525,7 @@
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Featured 6 -->
+                    
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="160dp"
                         android:layout_height="100dp"
@@ -549,7 +549,7 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- Trust / Branding Section -->
+            
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-# 🌾 Halli Santhe Digital
+# Halli Santhe Digital
 
 A digital marketplace app for rural artisans and farmers to showcase and sell their handcrafted products, agricultural goods, and local specialties directly to consumers — bridging the gap between rural talent and urban markets.
 
@@ -6,19 +6,19 @@ A digital marketplace app for rural artisans and farmers to showcase and sell th
 
 ---
 
-## ✨ Features
+## Features
 
-- **📱 Phone OTP Authentication** — Secure login via Firebase Phone Auth
-- **🛍️ Product Listing** — Browse products across categories like Handicrafts, Pottery, Textiles, Spices & Food, Jewellery, and more
-- **📸 Upload Products** — Sellers can photograph and list products with image compression
-- **🤖 AI-Powered Descriptions** — Generate compelling product descriptions using Google Gemini AI
-- **🔍 Search & Filter** — Browse by category chips or search by product name
-- **👤 Seller Profiles** — Each user has a profile linked to their listings
-- **📞 Direct Contact** — Buyers can directly call or WhatsApp sellers
+- **Phone OTP Authentication** — Secure login via Firebase Phone Auth
+- **Product Listing** — Browse products across categories like Handicrafts, Pottery, Textiles, Spices & Food, Jewellery, and more
+- **Upload Products** — Sellers can photograph and list products with image compression
+- **AI-Powered Descriptions** — Generate compelling product descriptions using Google Gemini AI
+- **Search & Filter** — Browse by category chips or search by product name
+- **Seller Profiles** — Each user has a profile linked to their listings
+- **Direct Contact** — Buyers can directly call or WhatsApp sellers
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -33,7 +33,7 @@ A digital marketplace app for rural artisans and farmers to showcase and sell th
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 app/src/main/java/com/halliSanthe/app/
@@ -59,7 +59,7 @@ app/src/main/java/com/halliSanthe/app/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/bg_light">
 
-    <!-- Premium Header -->
+    
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -64,7 +64,7 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Category Filter Chips -->
+    
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

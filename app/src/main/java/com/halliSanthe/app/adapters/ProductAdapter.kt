@@ -50,7 +50,6 @@ class ProductAdapter(
         holder.tvCategory.text = product.category
 
         if (product.imageUrl.length > 500) {
-            // It's a Base64 string
             val imageBytes = android.util.Base64.decode(product.imageUrl, android.util.Base64.DEFAULT)
             Glide.with(context)
                 .asBitmap()
@@ -59,7 +58,6 @@ class ProductAdapter(
                 .centerCrop()
                 .into(holder.ivProduct)
         } else {
-            // It's a regular URL
             Glide.with(context)
                 .load(product.imageUrl)
                 .placeholder(R.drawable.placeholder_image)
@@ -67,7 +65,6 @@ class ProductAdapter(
                 .into(holder.ivProduct)
         }
 
-        // Handle Management Buttons (Delete & Edit)
         if (showDelete) {
             holder.layoutActions.visibility = View.VISIBLE
             holder.ivDelete.setOnClickListener {
@@ -125,11 +122,9 @@ class ProductAdapter(
     }
 
     fun updateList(newList: List<Product>) {
-        // Create a new list for the internal reference to avoid clearing issues
         productList.clear()
         productList.addAll(newList)
         
-        // Always sync the full list for searching
         productListFull.clear()
         productListFull.addAll(newList)
         

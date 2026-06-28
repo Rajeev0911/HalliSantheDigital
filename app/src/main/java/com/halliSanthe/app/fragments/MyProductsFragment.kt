@@ -98,7 +98,7 @@ class MyProductsFragment : Fragment() {
             .delete()
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Product deleted", Toast.LENGTH_SHORT).show()
-                loadMyProducts() // Refresh the list
+                loadMyProducts() 
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -133,7 +133,7 @@ class MyProductsFragment : Fragment() {
                             loadedList.add(product)
                         }
                     } catch (e: Exception) {
-                        // Skip corrupted or incompatible documents
+
                     }
                 }
 
