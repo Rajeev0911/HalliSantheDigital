@@ -97,7 +97,7 @@ app/src/main/java/com/halliSanthe/app/
 
 ---
 
-## 📸 App Screens
+## App Screens
 
 | Splash | Login | Home | Browse | Upload |
 |--------|-------|------|--------|--------|
